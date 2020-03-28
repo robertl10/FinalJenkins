@@ -1,0 +1,40 @@
+pipeline {
+  agent any
+   stages {
+      stage('Build') {
+         steps {
+                echo 'The stage running is Build'
+         }
+       }
+      stage('Test') {
+         steps {
+                input('Would you like to proceed?'
+                echo 'The stage running is Test'
+         }      
+      }
+      stage('QA') {
+         steps {
+                echo 'The stage running is QA'
+         }
+      }
+      stage('Deploy') {
+         steps {
+                echo 'The stage running is Deploy'
+         }
+       }
+       stage('Monitor') {
+          steps {
+                 parallel {
+                    stage('Six') {
+                       steps {
+                              echo 'The stage running is Six'
+                       }
+                     }
+                     stage('Seven') {
+                        steps {
+                               echo 'The stage running is Seven'
+                        }
+                     }
+                    }
+ }
+}
